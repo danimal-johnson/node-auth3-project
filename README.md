@@ -46,7 +46,7 @@ Use **JSON Web Tokens** to keep users authenticated across requests.
 - add any extra functionality to make the application more user friendly like showing a message and redirecting to `/signin` if an unauthenticated user tries to access the list of users in the `/users` route.
 
 ## Notes
-* Modules installed: dotenv, express, helmet, jsonwebtoken, sqlite, cors, knex, nodemon (dev), bcryptjs, express-session, connect-session-knex,
+* Modules installed: dotenv, express, helmet, jsonwebtoken, sqlite, cors, knex, nodemon (dev), bcryptjs.
 * Directory structure: 
 * Database steps: `knex init`, then `knex migrate:make create-users-table` then `knex migrate:latest` to create db. Then create dbConfig.js to link it to the project.
-* Run steps: add "server" and "start" scripts to tje package.json file.
+* Run steps: add "server" and "start" scripts to the package.json file.
