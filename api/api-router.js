@@ -34,13 +34,14 @@ router.post("/login", (req, res) => {
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = signToken(user);
-        res.status(200).json({ token });
+        res.status(200).json({ token }); // TODO Don't display passwords
       }
       else {
-        res.status(401).json({ message: "Yoou shall not pass!" });
+        res.status(401).json({ message: "You shall not pass!" });
       }
     })
     .catch(error => {
+      console.log(error);
       res.status(500).json(error);
     });
 });
@@ -62,17 +63,13 @@ function signToken(user) {
 
 // ------- Getting users --------
 
-router.get('/users', restricted, /* TODO condition, */  (req, res) => {
-  Users.find()
+router.get('/users', restricted, (req, res) => { 
+
+  Users.findBy(req.user) // req.user only includes the department
     .then(users => {
-      res.json(users);
+      res.json( users ); // TODO: Remove password
     })
     .catch(err => res.send(err));
 });
-
-// TODO: This is the condition middleware function:
-// function onlyDepartment(department) {
-//   // Only return users that match the current user's department
-// }
 
 module.exports = router;

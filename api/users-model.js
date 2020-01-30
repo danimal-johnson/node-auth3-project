@@ -13,6 +13,8 @@ function find() {
 
 function findBy(filter) {
   return db('users').where(filter);
+  // The following line prevents password display, but has side effects.
+  // .select('id', 'username', 'department');
 }
 
 async function add(user) {
