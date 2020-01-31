@@ -44,3 +44,9 @@ Use **JSON Web Tokens** to keep users authenticated across requests.
   - the `/users` route should read the token from local storage and make a `GET` request to the `/api/users` route on the API attaching the token as the value of the `Authorization` header.
   - provide a button to `sign out` that will remove the token from local storage.
 - add any extra functionality to make the application more user friendly like showing a message and redirecting to `/signin` if an unauthenticated user tries to access the list of users in the `/users` route.
+
+## Notes
+* Modules installed: dotenv, express, helmet, jsonwebtoken, sqlite, cors, knex, nodemon (dev), bcryptjs.
+* Directory structure: 
+* Database steps: `knex init`, then `knex migrate:make create-users-table` then `knex migrate:latest` to create db. Then create dbConfig.js to link it to the project.
+* Run steps: add "server" and "start" scripts to the package.json file.
